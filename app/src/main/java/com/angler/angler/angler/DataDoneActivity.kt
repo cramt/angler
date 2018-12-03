@@ -10,7 +10,9 @@ import kotlinx.android.synthetic.main.activity_data_done.*
 
 
 class DataDoneActivity : AppCompatActivity() {
-    //when the thing is created
+    /**
+     * when the thing is created
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         //this is required by anything that inherits AppCompatActivity, which means all activities
         super.onCreate(savedInstanceState)

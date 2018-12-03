@@ -8,14 +8,19 @@ import com.xwray.groupie.Item
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.bluetooth_entry.view.*
 
-//this controls how each item in the list is displayed and what happens when you click it or otherwise interact with it
-//ac describes the activity that created it, and makes sure it can communicate with it
-class BluetoothAvailableAdapter(private val ac: MainActivity, private val bluetoothDevice: BluetoothDevice): Item<ViewHolder>() {
+/**
+ * this controls how each item in the list is displayed and what happens when you click it or otherwise interact with it
+ * @param ac describes the activity that created it, and makes sure it can communicate with it
+ * @param bluetoothDevice describes the current device being displayed
+ */
+class BluetoothAvailableAdapter(private val ac: MainActivity, private val bluetoothDevice: BluetoothDevice) : Item<ViewHolder>() {
     //we require a specific version of android for this
     @RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR2)
-    //when an item is created
-    //viewHolder, surprisingly, holds and keeps track of the view that we are going to create
-    //position, surprisingly, is the position of the view in the list
+    /**
+     * when an item is created
+     * @param viewHolder surprisingly, holds and keeps track of the view that we are going to create
+     * @param position surprisingly, is the position of the view in the list
+     */
     override fun bind(viewHolder: ViewHolder, position: Int) {
         //this sets the text of the view called bluetooth_name to the name of the specific bluetooth device we are displaying
         viewHolder.itemView.bluetooth_name.text = bluetoothDevice.name
@@ -34,8 +39,10 @@ class BluetoothAvailableAdapter(private val ac: MainActivity, private val blueto
 
     }
 
-    //this describes the standard ui we running with for this list
-    //this can be found at res/layout/bluetooth_entry.xml
+    /**
+     * this describes the standard ui we running with for this list
+     * this can be found at res/layout/bluetooth_entry.xml
+     */
     override fun getLayout(): Int {
         return R.layout.bluetooth_entry
     }

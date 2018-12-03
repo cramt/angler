@@ -10,10 +10,14 @@ import com.xwray.groupie.GroupAdapter
 import com.xwray.groupie.ViewHolder
 import kotlinx.android.synthetic.main.activity_main.*
 
-//this is the starting activity
-//this means that the whole app starts here
+/**
+ * this is the starting activity
+ * this means that the whole app starts here
+ */
 class MainActivity : AppCompatActivity() {
-    //when the thing is created
+    /**
+     * when the thing is created
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         //this is required by anything that inherits AppCompatActivity, which means all activities
         super.onCreate(savedInstanceState)
@@ -25,7 +29,7 @@ class MainActivity : AppCompatActivity() {
         runOnUiThread {
             //if there is no bluetooth tell the user
             if(defaultBtAdapter == null){
-                Toast.makeText(this@MainActivity, "bluetooth isnt on", Toast.LENGTH_LONG).show()
+                Toast.makeText(this@MainActivity, "bluetooth isn't available", Toast.LENGTH_LONG).show()
             }
             //otherwise create a list of all the possible bluetooth devices
             else {
