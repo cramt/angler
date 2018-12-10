@@ -33,9 +33,17 @@ fun createBluetoothHandler(activity: BluetoothCommunicationActivity): Handler {
                         //call the parsing function and set the currentInput to it
                         activity.currentInput = activity.parseBluetoothInput(readMessage)
                         //round the currentInput to an int, convert it to a string a display it on the txtAngleStatus view
-                        activity.txtAngleStatus.text = activity.currentInput!!.roundToInt().toString() + "°"
+                        if(activity.currentInput != null) {
+                            try {
+                                activity.txtAngleStatus.text = activity.currentInput!!.roundToInt().toString() + "°"
+                            }
+                            catch (e:Exception){
+
+                            }
+                        }
                     }
                 }
+
 
             }
             if (msg.what == BluetoothCommunicationActivity.CONNECTING_STATUS) {
